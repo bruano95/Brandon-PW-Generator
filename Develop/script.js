@@ -1,4 +1,6 @@
+//Asighment Code
 var generateBtn = document.querySelector("#generate");
+//Event Listener to prompt questions when button is pushed
 generateBtn.addEventListener("click", writePassword);
 
 // Arrays containing possible password characters
@@ -22,12 +24,12 @@ function generatePassword() {
       alert("Password must be between 8-128 characters. Please try again!");
       var confirmLength = (prompt("How many characters do you want your password to be?"));
       }
-
+    // Questions regarding what characters the user desires within password
     var confirmNumericCharacter = confirm("Click OK to include numbers in your password");    
     var confirmSpecialCharacter = confirm("Click OK to include special characters in your password");
     var confirmLowerCase = confirm("Click OK to include lowercase characters in your password");
     var confirmUpperCase = confirm("Click OK to include uppercase characters in your password");
-
+      // Reactions to an incorrect/non-supported input is provided
       while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
         alert("You must choose at least one parameter");
         var confirmNumericCharacter = confirm("Click OK to include numeric characters in your password");
@@ -35,7 +37,7 @@ function generatePassword() {
         var confirmLowerCase = confirm("Click OK to include lowercase characters in your password");
         var confirmUpperCase = confirm("Click OK to include uppercase characters in your password");   
     } 
-
+      //if statements used to generated based on user input
       var passwordCharacters = []
       
     if (confirmSpecialCharacter) {
@@ -54,13 +56,10 @@ function generatePassword() {
       passwordCharacters = passwordCharacters.concat(alphaUpper)
     }
 
-      console.log(passwordCharacters)
-
+      // Randomized characters are seleted with this equation
       var password = ""
-      
       for (var i = 0; i < confirmLength; i++) {
         password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-        console.log(password)
       }
       return password;
 }
