@@ -38,28 +38,28 @@ function generatePassword() {
         var confirmUpperCase = confirm("Click OK to include uppercase characters in your password");   
     } 
       //if statements used to generated based on user input
-      var passwordCharacters = []
+      var characters = []
       
     if (confirmSpecialCharacter) {
-      passwordCharacters = passwordCharacters.concat(specialChar)
+      characters = characters.concat(specialChar)
     }
 
     if (confirmNumericCharacter) {
-      passwordCharacters = passwordCharacters.concat(number)
+      characters = characters.concat(number)
     }
       
     if (confirmLowerCase) {
-      passwordCharacters = passwordCharacters.concat(alphaLower)
+      characters = characters.concat(alphaLower)
     }
 
     if (confirmUpperCase) {
-      passwordCharacters = passwordCharacters.concat(alphaUpper)
+      characters = characters.concat(alphaUpper)
     }
 
       // Randomized characters are seleted with this equation
       var password = ""
       for (var i = 0; i < confirmLength; i++) {
-        password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+        password = password + characters[Math.floor(Math.random() * characters.length)];
       }
       return password;
 }
